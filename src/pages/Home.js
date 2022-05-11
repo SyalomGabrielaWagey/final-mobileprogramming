@@ -6,6 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const Home = ({navigation}) => {
+    const [selectedCategories, setSelectedCategories] = useState();
     
   return (
     <View>
@@ -19,6 +20,19 @@ const Home = ({navigation}) => {
         </View>
         <View style={styles.navBtn}>
             <Button title="Filter" />
+                <Picker 
+                selectedValue={selectedCategories}
+                onValueChange={(itemValue, itemIndex) =>
+                    setSelectedCategories(itemValue)
+                }>
+                <Picker.Item label="FILTER" value="disabled" color='#aaa'/>
+                <Picker.Item label="T-SHIRT" value="tshirt" />
+                <Picker.Item label="SHIRT" value="shirt" />
+                <Picker.Item label="JEANS" value="jeans" />
+                <Picker.Item label="SKIRT" value="skirt" />
+                <Picker.Item label="JACKET" value="jacket" />
+            </Picker>
+         </View>
         </View>
        </View>
        <View style={styles.products}>
